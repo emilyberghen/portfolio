@@ -38,6 +38,11 @@ class Note {
     remove(){
       // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
       // in this function, 'this' will refer to the current note element
+      //let notes = document.querySelector('.notes');
+      //notes.removeChild(this);
+      this.className = "card bounceOut animated";
+      
+      
     } 
   }
 
