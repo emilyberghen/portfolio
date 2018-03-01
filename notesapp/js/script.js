@@ -38,6 +38,7 @@ class Note {
     remove(){
       // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
       // in this function, 'this' will refer to the current note element
+
       //let notes = document.querySelector('.notes');
       //notes.removeChild(this);
       this.className = "card bounceOut animated";
@@ -45,9 +46,6 @@ class Note {
       
     } 
   }
-
-  let n1 = new Note('Finish part one');
-  n1.add();
   
   class App {
     constructor() {
@@ -59,6 +57,9 @@ class Note {
       // this.btnAdd = ???
       // this.btnAdd.addEventListener("click", this.createNote.bind(this));
       // this.loadNotesFromStorage();
+
+      this.btnAdd = document.getElementById("btnAddNote");
+      this.btnAdd.addEventListener("click", this.createNote.bind(this));
     }
     
     loadNotesFromStorage() {
@@ -74,6 +75,10 @@ class Note {
       // note.add();
       // note.saveToStorage();
       // this.reset();
+      
+      this.title = document.getElementById('txtAddNote').value;
+      let note = new Note(this.title);
+      note.add();
     }
     
     reset(){
