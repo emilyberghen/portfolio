@@ -8,14 +8,25 @@ class Note {
     createElement(title){
       let newNote = document.createElement('div');
       newNote.className = "card";
-      newNote.innerHTML = title;
+      let p = document.createElement('p');
+      p.innerHTML = title;
+      let a = document.createElement('a');
+      a.setAttribute("href", "#");
+      a.className = "card-remove";
+      a.innerHTML= "Remove";
+
       // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+      a.addEventListener('click', this.remove.bind(newNote));
+
+      newNote.appendChild(p);
+      newNote.appendChild(a);
       return newNote;
     }
     
     add(){
       // HINT🤩
       // this function should append the note to the screen somehow
+      document.querySelector('.notes').appendChild(this.element);
     }
     
     saveToStorage(){
@@ -31,7 +42,7 @@ class Note {
   }
 
   let n1 = new Note('Finish part one');
-  console.log(n1);
+  n1.add();
   
   class App {
     constructor() {
