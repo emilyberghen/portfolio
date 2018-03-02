@@ -1,21 +1,20 @@
 class Note {
     constructor(title) {
       this.title = title;
-      // HINT🤩 this.element = this.createElement(title);
       this.element = this.createElement(title);
     }
     
     createElement(title){
       let newNote = document.createElement('div');
       newNote.className = "card";
+
       let p = document.createElement('p');
       p.innerHTML = title;
+
       let a = document.createElement('a');
       a.setAttribute("href", "#");
       a.className = "card-remove";
       a.innerHTML= "Remove";
-
-      // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
       a.addEventListener('click', this.remove.bind(newNote));
 
       newNote.appendChild(p);
@@ -24,8 +23,6 @@ class Note {
     }
     
     add(){
-      // HINT🤩
-      // this function should append the note to the screen somehow
       document.querySelector('.notes').appendChild(this.element);
     }
     
@@ -36,8 +33,6 @@ class Note {
     }
     
     remove(){
-      // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
-      // in this function, 'this' will refer to the current note element
       this.className = "card bounceOut animated";
       
       let notes = document.querySelector('.notes');
@@ -50,10 +45,7 @@ class Note {
       console.log("👊🏼 The Constructor!");
     
       // HINT🤩
-      // clicking the button should work
       // pressing the enter key should also work
-      // this.btnAdd = ???
-      // this.btnAdd.addEventListener("click", this.createNote.bind(this));
       // this.loadNotesFromStorage();
 
       this.btnAdd = document.getElementById("btnAddNote");
@@ -67,12 +59,9 @@ class Note {
     }
      
     createNote(e){
-      // this function should create a new note by using the Note() class
       
       // HINT🤩
-      // note.add();
       // note.saveToStorage();
-      // this.reset();
       
       this.title = document.getElementById('txtAddNote').value;
       let note = new Note(this.title);
@@ -81,7 +70,6 @@ class Note {
     }
     
     reset(){
-      // this function should reset the form
       let input = document.getElementById('txtAddNote');
       input.value = "";
       input.focus();
