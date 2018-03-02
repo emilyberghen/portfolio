@@ -41,7 +41,7 @@ class Note {
       this.className = "card bounceOut animated";
       
       let notes = document.querySelector('.notes');
-      setTimeout(() => notes.removeChild(this), 1000);
+      setTimeout(() => notes.removeChild(this), 800);
     } 
   }
   
@@ -77,10 +77,14 @@ class Note {
       this.title = document.getElementById('txtAddNote').value;
       let note = new Note(this.title);
       note.add();
+      this.reset();
     }
     
     reset(){
-      // this function should reset the form 
+      // this function should reset the form
+      let input = document.getElementById('txtAddNote');
+      input.value = "";
+      input.focus();
     }
     
   }
