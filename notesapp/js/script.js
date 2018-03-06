@@ -43,13 +43,20 @@ class Note {
   class App {
     constructor() {
       console.log("👊🏼 The Constructor!");
-    
+
       // HINT🤩
       // pressing the enter key should also work
       // this.loadNotesFromStorage();
 
       this.btnAdd = document.getElementById("btnAddNote");
+      this.txtAdd = document.getElementById("txtAddNote");
+
       this.btnAdd.addEventListener("click", this.createNote.bind(this));
+      /*this.txtAdd.addEventListener("keydown", e => {
+        if (13 == e.keyCode) {
+          this.createNote.bind(this);
+        }
+      });*/
     }
     
     loadNotesFromStorage() {
