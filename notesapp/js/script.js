@@ -30,7 +30,7 @@ class Note {
       // HINT🤩
       // localStorage only supports strings, not arrays
       // if you want to store arrays, look at JSON.parse and JSON.stringify
-
+      
       let arrNote = [];
       if(arrNote != null) {
         let arrLoad = JSON.parse(localStorage.getItem("note"));
@@ -61,13 +61,13 @@ class Note {
 
       this.btnAdd = document.getElementById("btnAddNote");
       this.txtAdd = document.getElementById("txtAddNote");
-
       this.btnAdd.addEventListener("click", this.createNote.bind(this));
-      /*this.txtAdd.addEventListener("keydown", e => {
+      this.txtAdd.addEventListener("keydown", e => {
         if (13 == e.keyCode) {
-          this.createNote.bind(this);
+          e.preventDefault();
+          this.btnAdd.click();
         }
-      });*/
+      });
     }
     
     loadNotesFromStorage() {
