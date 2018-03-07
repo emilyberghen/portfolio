@@ -32,7 +32,7 @@ class Note {
       // if you want to store arrays, look at JSON.parse and JSON.stringify
       
       let arrNote = [];
-      if(arrNote != null) {
+      if(localStorage.getItem("note") != null) {
         let arrLoad = JSON.parse(localStorage.getItem("note"));
         arrNote = arrLoad;
       }
@@ -79,7 +79,7 @@ class Note {
 
       if(loadNotes != null) {
         loadNotes.forEach(function(loadNote) {
-          let note = new Note;
+          let note = new Note(loadNote);
           note.add();
         });
       }
