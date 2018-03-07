@@ -45,17 +45,24 @@ class Note {
     remove(){
       this.className = "card bounceOut animated";
       
+      let readTitle = this.firstChild.innerHTML;
+      let arrRemove = JSON.parse(localStorage.getItem("note"));
+      let i = arrRemove.indexOf(readTitle);
+      arrRemove.splice(i, 1);
+
+      let strRemove = JSON.stringify(arrRemove);
+      localStorage.setItem("note", strRemove);
+      
       let notes = document.querySelector('.notes');
       setTimeout(() => notes.removeChild(this), 800);
+
+      
     } 
   }
   
   class App {
     constructor() {
       console.log("👊🏼 The Constructor!");
-
-      // HINT🤩
-      // pressing the enter key should also work
 
       this.loadNotesFromStorage();
 
@@ -71,10 +78,6 @@ class Note {
     }
     
     loadNotesFromStorage() {
-      // HINT🤩
-      // load all notes from storage here and add them to the screen
-      // something like note.add() in a loop would be nice
-
       let loadNotes = JSON.parse(localStorage.getItem("note"));
 
       if(loadNotes != null) {
@@ -86,7 +89,6 @@ class Note {
     }
      
     createNote(e){
-      
       this.title = document.getElementById('txtAddNote').value;
       let note = new Note(this.title);
       note.add();
